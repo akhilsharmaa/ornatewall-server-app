@@ -4,6 +4,7 @@ import BackgroundSection from '../components/BackgroundSection';
 import ContactForm from '../components/ContactForm';
 import CulinarySpacesSection from '../components/CulinarySpacesSection';
 import DesignExpertiseSection from '../components/DesignExpertiseSection';
+import FAQ from '../components/FAQ';
 import FeaturesSection from '../components/FeaturesSection';
 import Footer from '../components/Footer';
 import HeroSection from '../components/Hero';
@@ -25,9 +26,8 @@ function Home() {
         <ContactForm />
         </div>
       </BackgroundSection>
-
       <FeaturesSection/>
-
+      <FAQ/>
       <Footer />
     </div>
   );
