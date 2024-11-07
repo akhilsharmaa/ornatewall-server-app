@@ -1,8 +1,7 @@
-import videosample from '../assets/home/video.mp4';
-import videosample2 from '../assets/home/video2.mp4';
-import videosample3 from '../assets/home/video3.mp4';
+// import videosample from '../assets/home/video.mp4';
+// import videosample2 from '../assets/home/video2.mp4';
+// import videosample3 from '../assets/home/video3.mp4';
 import videosample4 from '../assets/home/video4.mp4';
-import ContactForm from './ContactForm';
 import ContactFormHero from './ContactFormHero';
 
 const HeroSection = () => {
