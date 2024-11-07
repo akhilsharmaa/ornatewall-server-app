@@ -32,7 +32,7 @@ const ContactForm = () => {
         ></textarea>
         <button
           type="submit"
-          className="w-full bg-black  text-white font-semibold py-2 rounded-md hover:bg-gray-800 transition duration-300"
+          className="w-full bg-warning  text-white font-semibold py-2 rounded-md hover:bg-gray-800 transition duration-300"
         >
           GET FREE QUOTE
         </button>

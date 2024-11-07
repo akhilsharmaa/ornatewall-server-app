@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   optimizeDeps: {
     exclude: ['js-big-decimal']
-  }, 
+  },
   server: {
     port: 80,
     host: true // to expose on the network

@@ -1,4 +1,9 @@
 import videosample from '../assets/home/video.mp4';
+import videosample2 from '../assets/home/video2.mp4';
+import videosample3 from '../assets/home/video3.mp4';
+import videosample4 from '../assets/home/video4.mp4';
+import ContactForm from './ContactForm';
+import ContactFormHero from './ContactFormHero';
 
 const HeroSection = () => {
   return (
@@ -11,40 +16,38 @@ const HeroSection = () => {
         className="absolute inset-0 w-full h-full object-cover"
       >
         <source
-          src={videosample}
+          src={videosample4}
           type="video/mp4"
         />
         Your browser does not support the video tag.
       </video>
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-gray-900 opacity-50"></div>
-      
+      <div className="absolute inset-0 bg-gray-900 opacity-30"></div>
+
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 md:mb-8 leading-tight">
-          Elevate Your Space.
-        </h1>
-        
-        <p className="text-base md:text-lg lg:text-xl max-w-2xl mb-10 md:mb-12 leading-relaxed px-2 md:px-4">
-          Transforming Spaces into Timeless Experiences Through Innovative Design Solutions, Meticulous Attention to Detail, 
-          and a Commitment to Crafting Interiors That Not Only Enhance Aesthetics but Also Improve Functionality.
-        </p>
-        
-        <div className="bg-white bg-opacity-90 rounded-lg shadow-lg p-4 md:p-6 lg:p-8 max-w-md w-full mx-4 lg:mx-auto transform transition-all duration-300 hover:scale-105">
-          <div className="flex items-center space-x-2 mb-4">
-            <span className="text-gray-500 font-semibold">+91</span>
-            <input
-              type="text"
-              placeholder="Mobile Number*"
-              className="flex-grow px-2 py-3 text-black outline-none placeholder-gray-500 bg-transparent rounded-lg"
-            />
+        <div className='flex flex-col items-center justify-center'>
+          <h1 className="text-8xl md:text-5xl lg:text-8xl font-bold mb-6 md:mb-8 leading-tight">
+            Elevate Your
+            <span className='text-red-400'> Space</span>.
+          </h1>
+          
+          <p className="text-base md:text-lg lg:text-xl max-w-2xl mb-10 md:mb-12 leading-relaxed px-2 md:px-4">
+            Transforming Spaces into Timeless Experiences Through Innovative Design Solutions
+          </p>
+
+          <div className='lg:w-2/3 w-full'>
+            <ContactFormHero />
           </div>
-          <button className="w-full py-3 bg-black text-white rounded-lg font-semibold transition-transform duration-200 hover:scale-105">
-            Connect
-          </button>
+        </div>
+        
+        <div className='w-1/3'>
         </div>
       </div>
+
+      {/* Bottom Gradient */}
+      <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-gray-900 to-transparent pointer-events-none"></div>
     </div>
   );
 };
