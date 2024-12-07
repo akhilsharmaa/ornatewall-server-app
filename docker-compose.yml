@@ -1,12 +1,16 @@
-version: '3.8'
-
 services:
-
   react-app:
     build:
       context: ./frontend
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile # Relative to context
     ports:
       - "80:80"
-    container_name: react-app-container
+    container_name: frontend-container
   
+  node-app:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile # Relative to context
+    ports:
+      - "3000:3000"
+    container_name: backend-container

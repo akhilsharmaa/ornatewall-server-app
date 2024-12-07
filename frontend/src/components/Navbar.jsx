@@ -1,10 +1,19 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import "../App.css"; // Ensure this path is correct based on your folder structure
 
 
 function SmallBanner() {
-    const [isBannerVisible, setIsBannerVisible] = useState(true);
+    const [isBannerVisible, setIsBannerVisible] = useState(false); // Initially not visible
     const [isExpanded, setIsExpanded] = useState(false);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsBannerVisible(true);
+        }, 3000); // Delay of 3 seconds
+
+        // Cleanup the timeout if the component unmounts
+        return () => clearTimeout(timer);
+    }, []);
 
     return (
         isBannerVisible && (
@@ -26,14 +35,12 @@ function SmallBanner() {
                     >
                         ✖
                     </span>
-
-
                 </div>
 
                 {isExpanded && (
                     <div className="mt-2 text-sm ">
                         NKDA COMMUNITY MARKET SHOP NO 33 ACTION AREA 1, 
-                        <br/> 
+                        <br /> 
                         AA KOLKATA, A BLOCK, Kolkata, West Bengal 700156
                     </div>
                 )}
