@@ -26,6 +26,7 @@ function Home() {
         <ContactForm />
         </div>
       </BackgroundSection>
+      
       <FeaturesSection/>
       <FAQ/>
       <Footer />
