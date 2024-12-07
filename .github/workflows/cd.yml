@@ -27,6 +27,6 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         script: |
           cd ornatewall-server-app
-          docker-compose down || true
-          docker-compose pull
-          docker-compose up --build -d
+          sudo docker-compose down || true
+          sudo docker-compose pull
+          sudo docker-compose up --build -d
