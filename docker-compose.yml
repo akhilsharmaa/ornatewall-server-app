@@ -9,7 +9,7 @@ services:
   
   # node-app:
   #   build:
-  #     context: ./backend
+  #     context: ./backend 
   #     dockerfile: Dockerfile # Relative to context
   #   ports:
   #     - "3000:3000"
