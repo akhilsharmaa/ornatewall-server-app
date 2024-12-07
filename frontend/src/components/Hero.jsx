@@ -27,11 +27,11 @@ const HeroSection = () => {
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
         <div className='flex flex-col items-center justify-center'>
-          <h1 className="text-8xl md:text-5xl lg:text-8xl font-bold mb-6 md:mb-8 leading-tight">
+          <h1 className="text-4xl sm:text-5xl lg:text-8xl font-bold mb-6 sm:mb-8 leading-tight">
             Elevate Your
-            <span className='text-red-400'> Space</span>.
+            <span className="text-red-400"> Space</span>.
           </h1>
-          
+                    
           <p className="text-base md:text-lg lg:text-xl max-w-2xl mb-10 md:mb-12 leading-relaxed px-2 md:px-4">
             Transforming Spaces into Timeless Experiences Through Innovative Design Solutions
           </p>

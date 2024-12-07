@@ -1,6 +1,26 @@
 import { useState } from 'react';
 import "../App.css"; // Ensure this path is correct based on your folder structure
 
+
+function SmallBanner() {
+    const [isBannerVisible, setIsBannerVisible] = useState(true);
+
+    return (
+        isBannerVisible && (
+            <div className="w-full bg-gradient-to-r from-orange-500 via-purple-500 to-purple-500 text-white py-2 px-6 text-sm font-semibold flex justify-between items-center shadow-lg rounded-lg m-1">
+                <span className="flex-1">Hello! Now We are at new location. </span>
+                <button
+                    className="ml-4 text-white hover:text-red-400 focus:outline-none transform transition-all duration-300 ease-in-out hover:scale-110"
+                    onClick={() => setIsBannerVisible(false)}
+                >
+                    ✖
+                </button>
+            </div>
+        )
+    );
+}
+
+
 export function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -10,15 +30,17 @@ export function Navbar() {
     return (
         <nav
             id="navbar"
-            className="bg-white m-0 p-0"
+            className="bg-transparent m-0 p-0 backdrop-blur-lg"
             onMouseEnter={() => setIsMenuOpen(true)}
             onMouseLeave={() => setIsMenuOpen(false)}
             // style={{ backdropFilter: 'blur(10px)', backgroundColor: 'rgba(255, 255, 255, 0.4)' }}
         >
-            <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
+
+
+            <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl py-2 px-6">
                 <a href="https://flowbite.com" className="flex items-center space-x-3 rtl:space-x-reverse">
                     {/* <img src="https://st.hzcdn.com/fimgs/b163c1c90da85949_3994-w240-h240-b2-p0--.jpg" className="h-8" alt="Flowbite Logo" /> */}
-                    <span className="self-center text-2xl font-semibold whitespace-nowrap text-gray-800">The Ornate Wall</span>
+                    <span className="self-center text-2xl font-semibold whitespace-nowrap text-black">The Ornate Wall</span>
                 </a>
                 <button
                     onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -56,6 +78,9 @@ export function Navbar() {
                     </ul>
                 </div>
             </div>
+            <hr className="border-t border-white/30 backdrop-blur-sm" />
+            <SmallBanner />
+
             {isDropdownOpen && (
                 <div id="mega-menu-full-dropdown" className="mt-1 border-gray-200 shadow-sm bg-white bg-opacity-90 backdrop-blur">
                     <div className="grid max-w-screen-xl px-4 py-5 mx-auto text-gray-900 sm:grid-cols-2 md:px-6">
