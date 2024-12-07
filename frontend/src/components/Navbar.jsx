@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import "../../src/App.css"; // Ensure this path is correct based on your folder structure
+import "../App.css"; // Ensure this path is correct based on your folder structure
 
 export function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
