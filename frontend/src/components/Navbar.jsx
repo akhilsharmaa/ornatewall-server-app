@@ -69,7 +69,7 @@ export function Navbar() {
             <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl py-2 px-6">
                 <a href="https://flowbite.com" className="flex items-center space-x-3 rtl:space-x-reverse">
                     {/* <img src="https://st.hzcdn.com/fimgs/b163c1c90da85949_3994-w240-h240-b2-p0--.jpg" className="h-8" alt="Flowbite Logo" /> */}
-                    <span className="self-center text-2xl font-semibold whitespace-nowrap text-black">The Ornate Wall</span>
+                    <span className="self-center text-2xl font-semibold whitespace-nowrap text-black">The OrnateWall</span>
                 </a>
                 <button
                     onClick={() => setIsMenuOpen(!isMenuOpen)}
