@@ -4,17 +4,39 @@ import "../App.css"; // Ensure this path is correct based on your folder structu
 
 function SmallBanner() {
     const [isBannerVisible, setIsBannerVisible] = useState(true);
+    const [isExpanded, setIsExpanded] = useState(false);
 
     return (
         isBannerVisible && (
-            <div className="w-full bg-gradient-to-r from-orange-500 via-purple-500 to-purple-500 text-white py-2 px-6 text-sm font-semibold flex justify-between items-center shadow-lg rounded-lg m-1">
-                <span className="flex-1">Hello! Now We are at new location. </span>
-                <button
-                    className="ml-4 text-white hover:text-red-400 focus:outline-none transform transition-all duration-300 ease-in-out hover:scale-110"
-                    onClick={() => setIsBannerVisible(false)}
-                >
-                    ✖
-                </button>
+            <div className="w-full bg-gradient-to-r from-orange-400 via-red-500 to-orange-500 text-white py-2 px-6 text-sm font-semibold flex flex-col shadow-lg mx-1">
+                <div className="flex justify-between items-center">
+                    <span className="flex-1 text-lg">
+                        Hello! Now We are at a new location.
+
+                        <span
+                            className="mt-2 text-blue-300 hover:text-blue-500 focus:outline-none transition-all duration-300 ease-in-out"
+                            onClick={() => setIsExpanded((prev) => !prev)}
+                        >
+                            {isExpanded ? " view less" : " view more"}
+                        </span>
+                    </span>
+                    <span
+                        className="ml-4 text-xl text-white hover:text-red-400 focus:outline-none transform transition-all duration-300 ease-in-out hover:scale-110"
+                        onClick={() => setIsBannerVisible(false)}
+                    >
+                        ✖
+                    </span>
+
+
+                </div>
+
+                {isExpanded && (
+                    <div className="mt-2 text-sm ">
+                        NKDA COMMUNITY MARKET SHOP NO 33 ACTION AREA 1, 
+                        <br/> 
+                        AA KOLKATA, A BLOCK, Kolkata, West Bengal 700156
+                    </div>
+                )}
             </div>
         )
     );
