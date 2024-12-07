@@ -7,10 +7,10 @@ services:
       - "80:80"
     container_name: frontend-container
   
-  node-app:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile # Relative to context
-    ports:
-      - "3000:3000"
-    container_name: backend-container
+  # node-app:
+  #   build:
+  #     context: ./backend
+  #     dockerfile: Dockerfile # Relative to context
+  #   ports:
+  #     - "3000:3000"
+  #   container_name: backend-container
