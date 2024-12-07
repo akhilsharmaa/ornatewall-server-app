@@ -8,7 +8,7 @@ export default defineConfig({
     exclude: ['js-big-decimal']
   },
   server: {
-    port: 443,
+    port: 80,
     host: true // to expose on the network
   }
 })
