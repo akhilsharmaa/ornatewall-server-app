@@ -37,5 +37,5 @@ jobs:
             cd ornatewall-server-app
           fi
           sudo docker-compose down || true
-          sudo docker-compose build --no-cache
+          sudo docker-compose pull
           sudo docker-compose up --build -d
