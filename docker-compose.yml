@@ -4,7 +4,7 @@ services:
       context: ./frontend
       dockerfile: Dockerfile # Relative to context
     ports:
-      - "80:80"
+      - "5000:5000"
     container_name: frontend-container
   
   # node-app:
