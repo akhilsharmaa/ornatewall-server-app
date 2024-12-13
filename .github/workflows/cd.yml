@@ -38,4 +38,4 @@ jobs:
           fi
           sudo docker-compose down || true
           sudo docker-compose pull
-          sudo docker-compose up --build -d
+          sudo docker-compose up --build --no-cache -d
