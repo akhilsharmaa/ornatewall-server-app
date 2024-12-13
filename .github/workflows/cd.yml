@@ -26,16 +26,7 @@ jobs:
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.SSH_KEY }}
         script: |
-          if [ -d "ornatewall-server-app" ]; then
-            echo "Repository exists. Pulling latest changes..."
-            cd ornatewall-server-app
-            git reset --hard
-            git pull origin main
-          else
-            echo "Cloning repository..."
-            git clone https://github.com/akhilsharmaa/ornatewall-server-app.git
-            cd ornatewall-server-app
-          fi
+          cd ornatewall-server-app
           sudo docker-compose down || true
           sudo docker-compose pull
-          sudo docker-compose up --build --no-cache -d
+          sudo docker-compose up --build --verbose
