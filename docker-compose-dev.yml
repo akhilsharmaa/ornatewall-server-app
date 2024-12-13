@@ -1,0 +1,19 @@
+services:
+  react-app:
+    container_name: frontend-container
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev # Relative to context
+    ports:
+      - "5000:5000"
+    volumes:
+      - /app/frontend/node_modules
+      - ./frontend:/app/frontend
+  
+  # node-app:
+  #   build:
+  #     context: ./backend 
+  #     dockerfile: Dockerfile # Relative to context
+  #   ports:
+  #     - "3000:3000"
+  #   container_name: backend-container 

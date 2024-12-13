@@ -1,16 +1,33 @@
-# Fetching the latest node image on alpine linux
-FROM node:18-alpine
+# Use the latest Node.js LTS image with Alpine Linux for the build stage
+FROM node:18-alpine as build
 
-# Setting up the work directory
-WORKDIR /app/frontend
+# Set the working directory
+WORKDIR /app
 
-# Installing dependencies
-COPY ./package*.json ./
-
+# Copy package files and install dependencies
+COPY package*.json ./
 RUN npm install
 
-# Copying all the files in our project
+# Copy application source code
 COPY . .
 
-# Starting our application
-CMD ["npm","run", "dev"]
+# Build the application for production
+RUN npm run build
+
+# Use a minimal Node.js base image for the production stage
+FROM node:18-alpine
+
+# Install a lightweight static file server
+RUN npm install -g serve
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the build artifacts from the build stage
+COPY --from=build /app/dist ./dist
+
+# Expose the port serve will run on (optional)
+EXPOSE 5000
+
+# Use serve to serve the static files
+CMD ["serve", "-s", "dist", "-l", "5000"]
