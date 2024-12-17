@@ -1,0 +1,56 @@
+<section id="luxuriousBedroomsSection" class="relative flex flex-col items-center bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 py-20 px-4 lg:px-24 overflow-hidden" style="background-attachment: fixed;">
+    <h2 id="luxuryBedroomTitle" class="text-5xl font-semibold text-gray-800 mb-2 text-center animate-fade-slide-down text-enhanced">
+        Luxurious Bedrooms
+    </h2>
+    <p id="luxuryBedroomDescription" class="text-center text-xl my-5 text-gray-600 lg:max-w-3xl max-w-2xl mb-10 animate-fade-slide-up text-enhanced">
+        Our bedroom designs are crafted to be serene sanctuaries, where you can unwind and recharge in the utmost comfort and style.
+    </p>
+    <div id="bedroomCardsContainer" class="grid grid-cols-1 md:grid-cols-3 gap-12 relative z-10">
+        <!-- Bedroom cards will be dynamically generated -->
+    </div>
+</section>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const section = document.getElementById('luxuriousBedroomsSection');
+        const title = document.getElementById('luxuryBedroomTitle');
+        const description = document.getElementById('luxuryBedroomDescription');
+        const cardsContainer = document.getElementById('bedroomCardsContainer');
+        const bedroomImages = [
+            { src: '/assets/home/image3_1.png', title: "Harmonious Living Spaces", description: "In our living room designs, we seamlessly blend form and function, creating spaces that are both visually captivating and exceptionally livable." },
+            { src: '/assets/home/image3_2.png', title: "Elevated Sleeping Quarters", description: "Our bedroom designs prioritize both beauty and comfort, ensuring that your personal retreat is a haven of tranquility and inspiration." },
+            { src: '/assets/home/image3_3.png', title: "Sophisticated Comfort", description: "Every detail is carefully considered to craft a space that feels as good as it looks, offering you a luxurious escape in your own home." }
+        ];
+    
+        bedroomImages.forEach(img => {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.innerHTML = `
+                <img src="${img.src}" alt="${img.title}">
+                <div class="card-overlay">
+                    <h3>${img.title}</h3>
+                    <p>${img.description}</p>
+                </div>
+            `;
+            cardsContainer.appendChild(card);
+        });
+    
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    title.style.opacity = '1';
+                    title.style.transform = 'translateY(0)';
+                    description.style.opacity = '1';
+                    description.style.transform = 'translateY(0)';
+                    cardsContainer.childNodes.forEach(card => {
+                        card.style.opacity = '1';
+                    });
+                }
+            });
+        }, { threshold: 0.2 });
+    
+        observer.observe(section);
+    });
+    
+</script>
