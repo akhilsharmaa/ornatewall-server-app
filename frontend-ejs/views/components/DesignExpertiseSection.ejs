@@ -1,0 +1,64 @@
+<section id="designExpertiseSection" class="flex flex-col items-center bg-gray-50 py-12 px-4 lg:px-24 my-40">
+
+    <h2 id="designExpertiseTitle" class="text-5xl font-semibold text-gray-800 mb-2 text-center animate-fade-slide-down text-enhanced">
+        Design Expertise
+    </h2>
+    
+    <p id="designExpertiseDesc" class="text-center text-xl my-5 text-gray-600 lg:max-w-3xl max-w-2xl mb-10 animate-fade-slide-up text-enhanced">
+        From cozy bedrooms to inviting living rooms and elegant dining areas, we breathe new life into every corner of your home, transforming the ordinary into the extraordinary.
+    </p>
+  
+    <div id="designCardsContainer" class="grid grid-cols-1 md:grid-cols-3 gap-6 opacity-0">
+      <!-- Generate cards dynamically with JavaScript -->
+    </div>
+  </section>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const section = document.getElementById('designExpertiseSection');
+      const title = document.getElementById('designExpertiseTitle');
+      const description = document.getElementById('designExpertiseDesc');
+      const cardsContainer = document.getElementById('designCardsContainer');
+  
+      const images = [
+        { src: '/assets/home/image2_1.png', alt: 'Wardrobe Design', label: 'Wardrobe Design' },
+        { src: '/assets/home/image2_2.png', alt: 'Master Bedroom Design', label: 'Master Bedroom Design' },
+        { src: '/assets/home/image2_3.png', alt: 'Dining Area Design', label: 'Dining Area Design' },
+        { src: '/assets/home/image2_4.png', alt: 'Kid’s Bedroom Design', label: 'Kid’s Bedroom Design' },
+        { src: '/assets/home/image2_5.png', alt: 'Bathroom Design', label: 'Bathroom Design' },
+        { src: '/assets/home/image2_6.png', alt: 'Pooja Room Design', label: 'Pooja Room Design' },
+        { src: '/assets/home/image2_7.png', alt: 'Study Room Design', label: 'Study Room Design' },
+        { src: '/assets/home/image2_8.png', alt: 'Living Room Design', label: 'Living Room Design' },
+        { src: '/assets/home/image2_9.png', alt: 'Bedroom Design', label: 'Bedroom Design' }
+    ];
+  
+      images.forEach(image => {
+        const card = `<div class="card">
+                        <img src="${image.src}" alt="${image.alt}" class="rounded-lg shadow-lg object-cover w-full h-full">
+                        <p class="text-center">${image.label}</p>
+                      </div>`;
+        cardsContainer.innerHTML += card;
+      });
+  
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            title.style.opacity = 1;
+            title.style.transform = 'translateY(0)';
+            description.style.opacity = 1;
+            description.style.transform = 'translateY(0)';
+            cardsContainer.style.opacity = 1;
+            cardsContainer.childNodes.forEach((child, index) => {
+              setTimeout(() => {
+                child.style.transform = 'scale(1)';
+                child.style.opacity = 1;
+              }, index * 100);
+            });
+          }
+        });
+      }, { threshold: 0.2 });
+  
+      observer.observe(section);
+    });
+  </script>
+  
