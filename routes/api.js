@@ -81,4 +81,34 @@ router.get('/records', async (req, res) => {
   }
 }); 
 
+
+router.post('/changelabel', async (req, res) => {
+  
+  const phone = req.headers.phone;  
+  const label =  req.headers.label; 
+
+  try{ 
+      const results = await RecordModel.find({phone: phone});      
+
+      results.forEach(async (doc) => {
+        doc.label = label;
+        await doc.save(); 
+      });
+
+      res.status(200).send( 
+        {"result": "Successfully changed the label"}
+      );
+
+  }catch(err){
+    console.log(err);
+    return res.status(500).send({
+        "message": "Failed to fetch records, please try again later. ", 
+        "error" : err
+      }
+    );
+  }
+
+}); 
+ 
+
 module.exports = router;
