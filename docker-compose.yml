@@ -1,11 +1,11 @@
 services:
   react-app:
     build:
-      context: ./frontend-ejs
+      context: .
       dockerfile: Dockerfile # Relative to context
     ports:
       - "5000:5000"
-    container_name: node-ejs-app
+    container_name: web-app
   
   # node-app:
   #   build:
