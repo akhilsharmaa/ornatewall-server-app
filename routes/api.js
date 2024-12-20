@@ -96,13 +96,13 @@ router.post('/changelabel', async (req, res) => {
       });
 
       res.status(200).send( 
-        {"result": "Successfully changed the label"}
+        {"message": "Successfully changed the label"}
       );
 
   }catch(err){
     console.log(err);
     return res.status(500).send({
-        "message": "Failed to fetch records, please try again later. ", 
+        "message": "Failed to changed the label", 
         "error" : err
       }
     );
