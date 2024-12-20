@@ -8,8 +8,9 @@
       
         <div class="bg-white bg-opacity-95 rounded-lg shadow-xl p-8 w-full text-gray-900">
             <h2 class="text-2xl font-semibold mb-6 text-center">Talk to a designer</h2>
-            <form action="/submit-contact-form" method="POST" class="space-y-4">
+            <form class="space-y-4">
                 <input
+                    id="name"
                     type="text"
                     name="name"
                     placeholder="Name"
@@ -17,6 +18,7 @@
                     required
                 />
                 <input
+                    id="email"
                     type="email"
                     name="email"
                     placeholder="Email ID"
@@ -24,7 +26,9 @@
                     required
                 />
                 <input
+                    id="phone"
                     type="tel"
+                    maxlength="10"
                     name="phone"
                     placeholder="Phone number"
                     class="w-full border dark:bg-white border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-gray-500"
@@ -34,13 +38,14 @@
                     <label for="whatsapp" class="text-sm text-gray-700">Send me updates on WhatsApp</label>
                 </div>
                 <textarea
+                    id="msg"
                     name="message"
                     placeholder="Any note or message*"
                     class="w-full border dark:bg-white border-gray-300 rounded-md px-4 py-2 h-24 text-sm focus:outline-none focus:border-gray-500"
                     required
                 ></textarea>
                 <button
-                    type="submit"
+                    onclick=submitQueryForm(event)
                     class="w-full bg-warning text-white font-semibold py-2 rounded-md hover:bg-gray-800 transition duration-300"
                 >
                     GET FREE QUOTE
