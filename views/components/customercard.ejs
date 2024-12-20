@@ -1,0 +1,33 @@
+<div class="relative flex flex-col mt-2 bg-white shadow-sm border border-slate-200 rounded-lg w-full">
+    <div class="p-4">
+        <div class="flex items-center justify-between  last:pb-0">
+            <div class="flex items-center gap-x-3">
+            <div>
+                <h6 class="text-slate-800 font-semibold">
+                    Phone: <%= phone %>
+                </h6>
+                <p class="text-slate-600 text-sm">
+                    Email: <span class="text-bold"> <%= email %> </span> 
+                </p>
+
+                <p class="text-slate-600 text-sm">
+                    Date: <%= date %>
+                </p>
+            </div> 
+            </div>
+            
+            <button type="button" class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"> 
+                Mark as read
+            </button>
+        </div>
+        <h6 class="text-slate-800 pb-2 text-sm">
+            Message: 
+        </h6>
+        <div class="p-2 border-2 border-gray-200 bg-gray-100 border-dashed rounded-lg dark:border-gray-700">
+
+        <p class="text-slate-600  text-sm">
+            <%= msg %>
+        </p>
+        </div>
+    </div>
+ </div>

@@ -3,6 +3,7 @@ const router = express.Router();
 const mongoose = require('mongoose');
 
 const mongoURI =  process.env.MONOGO_URI;
+const RecordModel = require('../model/RecordModel'); 
 
 mongoose.connect(mongoURI, {
     useNewUrlParser: true,
@@ -18,32 +19,11 @@ router.get('/', (req, res) => {
   });
 });
 
-
-// Define a Schema for phone number submissions
-const RecordModelSchema = new mongoose.Schema({
-  phone: {
-    type: String,
-    required: true
-  },
-  email: {
-    type: String,
-    default: "NA"
-  },
-  label: {
-    type: String,
-    default: "new"
-  },
-  date: {
-    type: Date,
-    default: Date.now 
-  }
-});
-
-const RecordModel = mongoose.model('Record', RecordModelSchema);
-
 router.post('/submit', (req, res) => {
 
-  const userPhoneNumber = req.headers.phone; // Get the phone number 
+  const userPhoneNumber = req.headers.phone;  
+  const userEmail = req.headers.email;  
+  const userMsg = req.headers.msg;   
 
   if (!userPhoneNumber || userPhoneNumber.length !== 10 || isNaN(userPhoneNumber)) {
     return res.status(402).send({
@@ -52,7 +32,9 @@ router.post('/submit', (req, res) => {
   }
 
   const newRecord = new RecordModel({
-    phone: userPhoneNumber
+    phone: userPhoneNumber,
+    email: userEmail, 
+    msg: userMsg
   });
 
   // Save the submission to the database
