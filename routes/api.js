@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 
-const mongoURI =  process.env.MONOGO_URI;
+const mongoURI =  process.env.MONGO_URI;
 const RecordModel = require('../model/RecordModel'); 
 
 mongoose.connect(mongoURI, {
