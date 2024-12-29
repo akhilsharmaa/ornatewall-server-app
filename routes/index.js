@@ -10,4 +10,8 @@ router.get('/about', (req, res) => {
   res.render('pages/about');
 });
 
+router.get('/interiors', (req, res) => {
+  res.render('pages/interiors');
+});
+
 module.exports = router;

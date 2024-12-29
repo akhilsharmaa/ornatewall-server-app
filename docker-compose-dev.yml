@@ -1,14 +1,16 @@
 services:
   react-app:
-    container_name: frontend-container
     build:
-      context: ./frontend
-      dockerfile: Dockerfile.dev # Relative to context
+      context: .
+      dockerfile: Dockerfile # Relative to context
     ports:
       - "5000:5000"
+    container_name: web-app
+    env_file: 
+      - "../myenv.env"
     volumes:
       - /app/frontend/node_modules
-      - ./frontend:/app/frontend
+      - ./:/app/frontend
   
   # node-app:
   #   build:

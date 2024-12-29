@@ -1,0 +1,15 @@
+<!-- In views/pages/home.ejs or any other page -->
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../includes/head', title="Interiors") %>   
+<body>
+    <%- include('../components/navbar') %>    
+    <%- include('../components/SubHeroSection', title="Interiors", subtitle="We bring you carefully-curated interior design ideas, to give your home a brand new look.") %>    
+
+    <%- include('../components/ContanctSection') %>    
+    <%- include('../components/FeaturesSection') %>      
+    <%- include('../components/Footer') %>  
+      
+    <script src="/scripts/home.js"></script>
+</body>
+</html>
