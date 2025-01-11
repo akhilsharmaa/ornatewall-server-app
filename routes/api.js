@@ -95,9 +95,7 @@ router.post('/changelabel', async (req, res) => {
         await doc.save(); 
       });
 
-      res.status(200).send( 
-        {"message": "Successfully changed the label"}
-      );
+      res.redirect(req.headers.referer || '/'); // Redirect to the referring page
 
   }catch(err){
     console.log(err);
