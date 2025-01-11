@@ -11,7 +11,7 @@ const RecordModelSchema = new mongoose.Schema({
   },
   label: {
     type: String,
-    default: "new"
+    default: "inbox"
   },
   date: {
     type: Date,
