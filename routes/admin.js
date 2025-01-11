@@ -12,7 +12,7 @@ router.get('/inbox', async (req, res) => {
 
   try{
       const result = await RecordModel.find(
-        {label: "new"}  
+        {label: "inbox"}  
       );
       res.status(200).render('pages/admin/inbox', 
          {"result": result}
