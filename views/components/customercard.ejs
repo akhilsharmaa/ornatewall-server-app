@@ -15,15 +15,26 @@
                 </div>
             </div>
 
-            <!-- Form for "Mark as read" -->
-            <form action="/api/changelabel" method="POST">
-                <input type="hidden" name="phone" value="<%= phone %>" />
-                <input type="hidden" name="label" value="<%= label %>" />
-                <button type="submit" class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
-                    Move to <%= label %>
-                </button>
-            </form>
+            <div>
+                <!-- Form for "Mark as read" -->
+                <form action="/api/changelabel" method="POST">
+                    <input type="hidden" name="phone" value="<%= phone %>" />
+                    <input type="hidden" name="label" value="<%= label %>" />
+                    <button type="submit" class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                        Move to <%= label %>
+                    </button>
+                </form>
+
+                <form action="/api/deleterecord" method="POST">
+                    <input type="hidden" name="phone" value="<%= phone %>" />
+                    <button type="submit" class="block px-4 py-2 text-sm text-red-600 hover:bg-gray-100 w-full text-left">
+                        Delete
+                    </button>
+                </form>
+            </div>
+            
         </div>
+
 
         <h6 class="text-slate-800 pb-2 text-sm">
             Message:
@@ -35,3 +46,25 @@
         </div>
     </div>
 </div>
+
+
+<script>
+    document.querySelectorAll('[id^="dropdownButton-"]').forEach(button => {
+        button.addEventListener('click', () => {
+            const menuId = button.id.replace('dropdownButton', 'dropdownMenu');
+            const menu = document.getElementById(menuId);
+    
+            // Toggle the visibility of the menu
+            menu.classList.toggle('hidden');
+        });
+    });
+    
+    // Close the dropdown menu when clicking outside
+    document.addEventListener('click', (event) => {
+        document.querySelectorAll('[id^="dropdownMenu-"]').forEach(menu => {
+            if (!menu.contains(event.target) && !menu.previousElementSibling.contains(event.target)) {
+                menu.classList.add('hidden');
+            }
+        });
+    });
+</script>

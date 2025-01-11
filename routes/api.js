@@ -107,6 +107,31 @@ router.post('/changelabel', async (req, res) => {
   }
 
 }); 
- 
+
+
+router.post('/deleterecord', async (req, res) => {
+  
+  const phone = req.body.phone;   
+
+  try{ 
+
+      const results = await RecordModel.find({phone: phone});      
+
+      results.forEach(async (doc) => {
+        doc.label = 'deleted';
+        await doc.save(); 
+      });
+
+    res.redirect(req.headers.referer || '/'); // Redirect to the referring page
+  }catch(err){
+    console.log(err);
+    return res.status(500).send({
+        "message": "Failed to delete the phone numbers", 
+        "error" : err
+      }
+    );
+  }
+
+}); 
 
 module.exports = router;
