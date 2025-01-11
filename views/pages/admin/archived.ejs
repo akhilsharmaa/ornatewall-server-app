@@ -40,7 +40,7 @@
          <p class="text-black text-xl mt-8">New Customers (Unreads)</p>
 
          <% result.forEach(function(item) { %>
-            <%- include('../../components/customercard.ejs', { "phone": item.phone, "email": item.email, "date": item.date, "msg":item.msg, "label": "archive"}) %>
+            <%- include('../../components/customercard.ejs', { "phone": item.phone, "email": item.email, "date": item.date, "msg":item.msg, "label": "new"}) %>
          <% }); %> 
  
      </div>

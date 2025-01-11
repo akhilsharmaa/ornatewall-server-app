@@ -10,7 +10,7 @@
                         Email: <span class="text-bold"> <%= email %> </span>
                     </p>
                     <p class="text-slate-600 text-sm">
-                        Date: <%= date %>
+                        Date: <%= new Date(date).toLocaleDateString('en-US', { day: '2-digit', month: 'short', year: 'numeric' }) %>
                     </p>
                 </div>
             </div>
@@ -18,9 +18,9 @@
             <!-- Form for "Mark as read" -->
             <form action="/api/changelabel" method="POST">
                 <input type="hidden" name="phone" value="<%= phone %>" />
-                <input type="hidden" name="label" value="read" />
+                <input type="hidden" name="label" value="<%= label %>" />
                 <button type="submit" class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
-                    Mark as read
+                    Mark as <%= label %>
                 </button>
             </form>
         </div>
