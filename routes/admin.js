@@ -11,7 +11,9 @@ router.get('/', (req, res) => {
 router.get('/inbox', async (req, res) => {
 
   try{
-      const result = await RecordModel.find();
+      const result = await RecordModel.find(
+        {label: "new"}  
+      );
       res.status(200).render('pages/admin/inbox', 
          {"result": result}
       );

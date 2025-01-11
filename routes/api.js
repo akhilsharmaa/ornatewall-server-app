@@ -84,8 +84,8 @@ router.get('/records', async (req, res) => {
 
 router.post('/changelabel', async (req, res) => {
   
-  const phone = req.headers.phone;  
-  const label =  req.headers.label; 
+  const phone = req.body.phone;  
+  const label =  req.body.label; 
 
   try{ 
       const results = await RecordModel.find({phone: phone});      
