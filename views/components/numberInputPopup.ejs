@@ -16,15 +16,28 @@
         alt="image">
     <div class="container-text">
         <h1 class="text-3xl text-black">Enter Phone Number</h1>
-        <p>You are just one click away from <br> your dream living.</p>
-        <input  id="numberInput" 
-                class="border p-2 rounded w-full mb-3" 
-                placeholder="+91 90XXXXXXXX"
-                required>
-        <button 
-                type="submit" 
-                >CONNECT</button>
-        <span>No spams included</span>
+        <p>You are just one click away from <br> your dream living.</p> 
+ 
+        <form class="space-y-4"> 
+            <input
+                id="phone"
+                type="tel"
+                maxlength="10"
+                name="phone"
+                placeholder="Phone number"
+                class="w-full border dark:bg-white border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-gray-500"
+            /> 
+            <button
+                onclick=submitQueryForm(event)
+                class="w-full bg-warning text-white font-semibold py-2 rounded-md hover:bg-gray-800 transition duration-300"
+            >
+                GET FREE QUOTE
+            </button>
+            <p class="text-xs text-gray-500 text-center mt-4">
+                By submitting this form, you agree to the privacy policy & terms and conditions.
+            </p>
+        </form>
+
     </div>
 </div>
 
@@ -38,8 +51,8 @@
             document.getElementById("container-queryfloating").style.visibility = "hidden"
         }
     
-        // Show the popup every 20 seconds
-        setInterval(showPopup, 3000);
+        // Show the popup every 7 seconds
+        setInterval(showPopup, 10000);
     
         // Close the popup when the form is submitted
         document.getElementById("numberForm").addEventListener("submit", function (e) {
@@ -48,5 +61,5 @@
             console.log("Entered Number:", numberValue);
             hidePopup();
         }); 
- 
+  
 </script>
