@@ -1,0 +1,52 @@
+<!-- <div id="numberInputPopup" class="fixed w inset-0 z-40 bg bg-opacity-50 flex items-center justify-center hidden">
+    <div class="bg-white p-6 rounded-lg shadow-lg">
+        <h2 class="text-lg font-bold mb-2">Enter a Number</h2>
+        <form id="numberForm">
+            <input type="number" id="numberInput" class="border p-2 rounded w-full mb-3" required>
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Submit</button>
+        </form>
+    </div>
+</div> -->
+
+<div id="container-queryfloating">
+    <div class="container-close"
+        onclick=hidePopup()>&times;</div>
+    <img
+        src="./assets/home/image1110.jpg"
+        alt="image">
+    <div class="container-text">
+        <h1 class="text-3xl text-black">Enter Phone Number</h1>
+        <p>You are just one click away from <br> your dream living.</p>
+        <input  id="numberInput" 
+                class="border p-2 rounded w-full mb-3" 
+                placeholder="+91 90XXXXXXXX"
+                required>
+        <button 
+                type="submit" 
+                >CONNECT</button>
+        <span>No spams included</span>
+    </div>
+</div>
+
+
+<script> 
+        function showPopup() {
+            document.getElementById("container-queryfloating").style.visibility = "visible"
+        }
+    
+        function hidePopup() {
+            document.getElementById("container-queryfloating").style.visibility = "hidden"
+        }
+    
+        // Show the popup every 20 seconds
+        setInterval(showPopup, 3000);
+    
+        // Close the popup when the form is submitted
+        document.getElementById("numberForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+            const numberValue = document.getElementById("numberInput").value;
+            console.log("Entered Number:", numberValue);
+            hidePopup();
+        }); 
+ 
+</script>
